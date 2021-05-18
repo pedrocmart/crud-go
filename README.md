@@ -40,3 +40,7 @@ A simple CRUD Golang API with MySQL & Docker
 
 ```
 - localhost:8080/user
+
+-Usage + Demo:
+
+[![DEMO](https://img.youtube.com/vi/ypUJ5-j-GD8/0.jpg)](https://youtu.be/ypUJ5-j-GD8)
