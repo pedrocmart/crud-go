@@ -1,0 +1,36 @@
+version: '3'
+services:
+    db:
+        container_name: crud_go_db
+        image: 'mysql:8.0'
+        environment: 
+            - MYSQL_DATABASE=crudgo
+            - MYSQL_ROOT_PASSWORD=@root
+            - MYSQL_USER=mysql
+            - MYSQL_PASSWORD=@root
+            - DATABASE_HOST=db
+            - LC_ALL=C.UTF-8
+            - LANG=C.UTF-8
+        ports:
+            - "3307:3306"
+        volumes:
+            - ./data:/lib/mysql
+            - ./sql:/docker-entrypoint-initdb.d
+    api:
+        build: .
+        restart: on-failure
+        depends_on: 
+            - db
+        links:
+            - db
+        environment: 
+            - DB_HOST=db
+            - DB_PORT=3306
+            - DB_NAME=crudgo
+            - DB_USER=root
+            - DB_PASS=@root
+        ports:
+            - 5000:5000
+
+
+
