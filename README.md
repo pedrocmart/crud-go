@@ -22,7 +22,7 @@ A simple CRUD Golang API with MySQL & Docker
 ## Set up test database
 
 ```bash
-    docker exec -it mysql_docker bash -l
+    docker exec -it crud_go_db bash -l
 
     mysql -u root -p
 ```
